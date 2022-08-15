@@ -1,0 +1,24 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-search"></i>
+            </span>
+  <input type="text" class="form-control"
+         placeholder="Search for product ..."
+         #searchInput
+         (keyup)="searchByKeyword(searchInput.value)">
+</div>
+<div class="row">
+  <div class="col-md-3" *ngFor="let p of products">
+    <div class="product-box">
+      <a routerLink="/products/{{p.id}}">
+        <img src="{{p.imageUrl}}" class="img-responsive">
+      </a>
+      <a routerLink="/products/{{p.id}}">
+        <h1>{{ p.name }}</h1>
+      </a>
+      <h2>{{ p.description }}</h2>
+      <div class="price">{{ p.unitPrice | currency: 'USD' }}</div>
+      <a href="#" class="primary-btn">Add to cart</a>
+    </div>
+  </div>
+</div>

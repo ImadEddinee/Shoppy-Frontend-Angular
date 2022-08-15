@@ -1,14 +1,12 @@
-<ul class="list-unstyled navbar-list">
-  <li>
-    <a routerLink="/categories/1/products" routerLinkActive="active-link">Books</a>
-  </li>
-  <li>
-    <a href="#">Coffee Mugs</a>
-  </li>
-  <li>
-    <a href="#">Mouse Pads</a>
-  </li>
-  <li>
-    <a href="#">Luggage Tags</a>
-  </li>
-</ul>
+<ng-container *ngIf="categories ;else err">
+  <ul class="list-unstyled navbar-list"
+      *ngFor="let c of categories">
+    <li>
+      <a routerLink='/categories/{{ c.id }}/products'
+         routerLinkActive="active-link">{{ c.name }}</a>
+    </li>
+  </ul>
+</ng-container>
+<ng-template #err>
+  <span class="text-danger">{{ errorMessage }}</span>
+</ng-template>
