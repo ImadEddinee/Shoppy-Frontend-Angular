@@ -1,12 +1,16 @@
 export interface Product {
 
   id: number;
-  sku: String;
-  name: String;
-  description: String;
+  sku: string;
+  name: string;
+  description: string;
   unitPrice: number;
-  imageUrl: String;
+  imageUrl: string;
   active: boolean;
   unitsInStock: number;
+  currentPage: number;
+  pageSize: number;
+  totalPages: number;
+  totalElements: number;
 
 }

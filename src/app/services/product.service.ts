@@ -11,22 +11,22 @@ export class ProductService {
 
   constructor(private http :HttpClient) { }
 
-  getRandomProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(environment.baseUrl + "products");
+  getRandomProducts(page: number,size: number): Observable<Product[]>{
+    return this.http.get<Product[]>(environment.baseUrl + "products?page=" + page + "&size=" + size);
   }
 
-  getProductsByCategory(id: number): Observable<Product[]>{
-    return this.http.get<Product[]>(environment.baseUrl + "categories/" + id + "/products");
+  getProductsByCategory(id: number,page: number,size: number): Observable<Product[]>{
+    return this.http.get<Product[]>(environment.baseUrl + "categories/" + id + "/products?page=" + page + "&size=" + size);
   }
 
-  searchInRandomProducts(keyword: string): Observable<Product[]>{
+  searchInRandomProducts(keyword: string,page: number,size: number): Observable<Product[]>{
     return this.http
-      .get<Product[]>(environment.baseUrl + "products/search?keyword=" + keyword);
+      .get<Product[]>(environment.baseUrl + "products/search?keyword=" + keyword + "&page=" + page + "&size=" + size);
   }
 
-  searchProductsByCategory(keyword: string, categoryId: number): Observable<Product[]>{
+  searchProductsByCategory(keyword: string, categoryId: number,page: number,size: number): Observable<Product[]>{
     return this.http
-      .get<Product[]>(environment.baseUrl + "categories/" + categoryId + "/products/search?keyword=" + keyword);
+      .get<Product[]>(environment.baseUrl + "categories/" + categoryId + "/products/search?keyword=" + keyword + "&page=" + page + "&size=" + size);
   }
 
   getProduct(id: number): Observable<Product>{
