@@ -1,4 +1,6 @@
-# ShoppyFrontendAngular
+# Shoppy Front-end Part With Angular
+
+Here is a link to the Back-end Part : https://github.com/ImadEddinee/Shoppy-Backend-SpringBoot
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
